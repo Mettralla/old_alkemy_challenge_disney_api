@@ -6,7 +6,9 @@ module Api
       before_action :set_character, only: %i[show update destroy]
 
       def index
-        render json: Character.all
+        characters = Character.all
+
+        render json: CharactersRepresenter.new(characters).as_json
       end
 
       def show
@@ -14,12 +16,12 @@ module Api
       end
 
       def create
-        @character = Character.new(character_params)
+        character = Character.new(character_params)
 
-        if @character.save
-          render json: @character, status: :created
+        if character.save
+          render json: CharacterRepresenter.new(character).as_json, status: :created
         else
-          render json: @character.errors.full_messages, status: :unprocessable_entity
+          render json: character.errors.full_messages, status: :unprocessable_entity
         end
       end
 

@@ -6,5 +6,5 @@ class Character < ApplicationRecord
   validates :story, presence: true, length: { minimum: 3, maximum: 500 }
   validates :movie_id, presence: true
 
-  has_many :movies
+  belongs_to :movie
 end
