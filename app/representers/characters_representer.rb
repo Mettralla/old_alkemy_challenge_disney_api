@@ -1,3 +1,4 @@
+# 
 class CharactersRepresenter
   def initialize(characters)
     @characters = characters
