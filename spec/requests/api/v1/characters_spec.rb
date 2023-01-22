@@ -24,6 +24,25 @@ RSpec.describe "Characters API", type: :request do
     end
   end
 
+  describe 'GET /character/:id' do
+    it 'return character' do
+      get api_v1_character_path(@character)
+
+      expect(response).to have_http_status(:ok)
+      expect(response_body).to eq(
+        {
+          'id' => @character.id,
+          'picture' => @character.picture,
+          'name' => @character.name,
+          'age' => @character.age,
+          'weight' => @character.weight,
+          'story' => @character.story,
+          'movies' => @character.movie.title
+        }
+      )
+    end
+  end
+
   describe 'POST /characters' do
     it 'create a new book' do
       expect {
@@ -34,8 +53,7 @@ RSpec.describe "Characters API", type: :request do
             name: 'P.J.',
             age: 18,
             weight: 86.55,
-            story: "Max's best friend since childhood. Unlike Max, P.J. is somewhat woeful about how he never earned
-            his dad's genuine respect.",
+            story: "Max's best friend since childhood.",
             movie_id: @movie.id
           }
         }
@@ -51,6 +69,25 @@ RSpec.describe "Characters API", type: :request do
           'weight' => @movie.characters.last.weight,
           'story' => @movie.characters.last.story,
           'movies' => @movie.title
+        }
+      )
+    end
+  end
+
+  describe 'PATCH /character/:id' do
+    it 'should update character' do
+      patch api_v1_character_path(@character), params: { character: { name: 'Maximilian Goofy' } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response_body).to eq(
+        {
+          'id' => @character.id,
+          'picture' => @character.picture,
+          'name' => 'Maximilian Goofy',
+          'age' => @character.age,
+          'weight' => @character.weight,
+          'story' => @character.story,
+          'movies' => @character.movie.title
         }
       )
     end

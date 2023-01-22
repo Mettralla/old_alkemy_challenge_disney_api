@@ -6,22 +6,30 @@ module Api
       before_action :set_character, only: %i[show update destroy]
 
       def index
-        characters = Character.all
+        @characters = Character.all
 
-        render json: CharactersRepresenter.new(characters).as_json
+        render json: CharactersRepresenter.new(@characters).as_json
       end
 
       def show
-        render json: @character
+        render json: CharacterRepresenter.new(@character).as_json
       end
 
       def create
-        character = Character.new(character_params)
+        @character = Character.new(character_params)
 
-        if character.save
-          render json: CharacterRepresenter.new(character).as_json, status: :created
+        if @character.save
+          render json: CharacterRepresenter.new(@character).as_json, status: :created
         else
-          render json: character.errors.full_messages, status: :unprocessable_entity
+          render json: @character.errors.full_messages, status: :unprocessable_entity
+        end
+      end
+
+      def update
+        if @character.update(character_params)
+          render json: CharacterRepresenter.new(@character).as_json, status: :ok
+        else
+          render json: @character.errors.full_messages, status: :unprocessable_entity
         end
       end
 
