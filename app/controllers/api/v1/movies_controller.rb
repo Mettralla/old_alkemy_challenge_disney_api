@@ -11,6 +11,10 @@ module Api
         render json: MoviesRepresenter.new(@movies).as_json
       end
 
+      def show
+        render json: MovieRepresenter.new(@movie).as_json
+      end
+
       private
 
       def movie_params

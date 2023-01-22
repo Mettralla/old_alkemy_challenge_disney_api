@@ -8,10 +8,10 @@ class MovieRepresenter
       id: @movie.id,
       picture: @movie.picture,
       title: @movie.title,
-      release_date: @movie.release_date,
+      release_date: @movie.release_date.strftime('%d/%m/%Y'),
       raiting: @movie.raiting,
       genre_id: @movie.genre.name,
-      cast: @movie.characters.name
+      cast: @movie.characters
     }
   end
 
