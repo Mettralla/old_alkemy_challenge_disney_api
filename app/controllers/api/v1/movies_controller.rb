@@ -6,9 +6,9 @@ module Api
       before_action :set_movie, only: %i[show update destroy]
 
       def index
-        @characters = Character.all
+        @movies = Movie.all
 
-        render json: MoviesRepresenter.new(@characters).as_json
+        render json: MoviesRepresenter.new(@movies).as_json
       end
 
       private

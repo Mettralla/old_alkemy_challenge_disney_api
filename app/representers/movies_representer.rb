@@ -8,7 +8,7 @@ class MoviesRepresenter
       {
         picture: movie.picture,
         title: movie.title,
-        release_date: movie.release_date
+        release_date: release_date_format(movie)
       }
     end
   end
@@ -16,4 +16,8 @@ class MoviesRepresenter
   private
 
   attr_reader :movies
+
+  def release_date_format(movie)
+    movie.release_date.strftime('%d/%m/%Y')
+  end
 end
