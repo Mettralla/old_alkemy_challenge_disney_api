@@ -43,4 +43,34 @@ RSpec.describe "Movies API", type: :request do
       )
     end
   end
+
+  describe 'POST /movie' do
+    it 'should create a new movie' do
+      expect {
+        post api_v1_movies_path,
+        params: {
+          movie: {
+            picture: 'f5d6a7654dsa.jpg',
+            title: 'Red',
+            release_date: '01/03/2022',
+            raiting: 5,
+            genre_id: 1
+          }
+        }
+      }.to change { Movie.count }.from(1).to(2)
+
+      expect(response).to have_http_status(:created)
+      expect(response_body).to eq(
+        {
+          'id' => @genre.movies.last.id,
+          'picture' => @genre.movies.last.picture,
+          'title' => @genre.movies.last.title,
+          'release_date' => @genre.movies.last.release_date.strftime('%d/%m/%Y'),
+          'raiting' => @genre.movies.last.raiting,
+          'genre_id' => @genre.movies.last.genre.name,
+          'cast' => @genre.movies.last.characters.as_json
+        }
+      )
+    end
+  end
 end

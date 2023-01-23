@@ -44,7 +44,7 @@ RSpec.describe "Characters API", type: :request do
   end
 
   describe 'POST /characters' do
-    it 'create a new book' do
+    it 'create a new character' do
       expect {
         post api_v1_characters_path,
         params: { 
