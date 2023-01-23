@@ -25,6 +25,14 @@ module Api
         end
       end
 
+      def update
+        if @movie.update(movie_params)
+          render json: MovieRepresenter.new(@movie).as_json, status: :ok
+        else
+          render json: @movie.errors.full_messages, status: :unprocessable_entity
+        end
+      end
+
       private
 
       def movie_params

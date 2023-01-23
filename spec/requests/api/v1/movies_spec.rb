@@ -73,4 +73,23 @@ RSpec.describe "Movies API", type: :request do
       )
     end
   end
+
+  describe 'PATCH /movie/:id' do
+    it 'should update movie' do
+      patch api_v1_movie_path(@movie), params: { movie: { title: 'Goofy 2: The Movie' } }
+
+      expect(response).to have_http_status(:ok)
+      expect(response_body).to eq(
+        {
+          'id' => @movie.id,
+          'picture' => @movie.picture,
+          'title' => 'Goofy 2: The Movie',
+          'release_date' => @movie.release_date.strftime('%d/%m/%Y'),
+          'raiting' => @movie.raiting,
+          'genre_id' => @movie.genre.name,
+          'cast' => @movie.characters.as_json
+        }
+      )
+    end
+  end
 end
