@@ -25,7 +25,7 @@ RSpec.describe "Movies API", type: :request do
     end
   end
 
-  describe 'GET /movie' do
+  describe 'GET /movies' do
     it 'return movie details' do
       get api_v1_movie_path(@movie)
 
@@ -44,7 +44,7 @@ RSpec.describe "Movies API", type: :request do
     end
   end
 
-  describe 'POST /movie' do
+  describe 'POST /movies' do
     it 'should create a new movie' do
       expect {
         post api_v1_movies_path,
@@ -74,7 +74,7 @@ RSpec.describe "Movies API", type: :request do
     end
   end
 
-  describe 'PATCH /movie/:id' do
+  describe 'PATCH /movies/:id' do
     it 'should update movie' do
       patch api_v1_movie_path(@movie), params: { movie: { title: 'Goofy 2: The Movie' } }
 
@@ -90,6 +90,16 @@ RSpec.describe "Movies API", type: :request do
           'cast' => @movie.characters.as_json
         }
       )
+    end
+  end
+
+  describe 'DELETE /movies/:id' do
+    it 'delete a movie' do
+      expect {
+        delete api_v1_movie_path(@movie)
+      }.to change { Movie.count }.from(1).to(0)
+
+      expect(response).to have_http_status(:no_content)
     end
   end
 end

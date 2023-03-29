@@ -33,6 +33,12 @@ module Api
         end
       end
 
+      def destroy
+        @movie.destroy
+
+        head :no_content
+      end
+
       private
 
       def movie_params
