@@ -4,6 +4,7 @@ module Api
   module V1
     class CharactersController < ApplicationController
       before_action :set_character, only: %i[show update destroy]
+      # before_action :authenticate_user!, only: %i[index]
 
       def index
         @characters = Character.all

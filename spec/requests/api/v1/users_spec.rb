@@ -34,25 +34,35 @@ RSpec.describe "Users API", type: :request do
 
   describe "PATCH /users/:id" do
     it "should update user" do
-      patch api_v1_user_path(@user), params: { user: { email: 'tuut@tuut.com' } }, as: :json
+      patch api_v1_user_path(@user),
+        params: { user: { email: 'toot@toot.com' } },
+        headers: { Authorization: JsonWebToken.encode(user_id: @user.id) }
 
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:ok)
     end
 
-    it "should not update user when invalid params are sent" do
-      patch api_v1_user_path(@user), params: { user: { email: 'bad_email', password: '123456' } }, as: :json
+    it "should forbid update user" do
+      patch api_v1_user_path(@user), params: { user: { email: @user.email } }, as: :json
 
-      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to have_http_status(:forbidden)
     end
   end
 
   describe "DELETE /users/:id" do
     it "should destroy user" do
       expect {
-        delete api_v1_user_path(@user)
+        delete api_v1_user_path(@user), headers: { Authorization: JsonWebToken.encode(user_id: @user.id) }, as: :json
       }.to change { User.count }.from(1).to(0)
 
       expect(response).to have_http_status(:no_content)
+    end
+
+    it "should forbid destroy user" do
+      expect {
+        delete api_v1_user_path(@user), as: :json
+      }.not_to change { User.count }
+
+      expect(response).to have_http_status(:forbidden)
     end
   end
 end
