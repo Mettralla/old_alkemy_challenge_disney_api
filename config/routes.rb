@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :genres
       resources :movies
       resources :characters
+      resources :users, only: %i[show]
     end
   end
   # root "articles#index"
