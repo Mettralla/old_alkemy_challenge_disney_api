@@ -31,4 +31,18 @@ RSpec.describe "Users API", type: :request do
       expect(response).to have_http_status(:unprocessable_entity)
     end
   end
+
+  describe "PATCH /users/:id" do
+    it "should update user" do
+      patch api_v1_user_path(@user), params: { user: { email: 'tuut@tuut.com' } }, as: :json
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it "should not update user when invalid params are sent" do
+      patch api_v1_user_path(@user), params: { user: { email: 'bad_email', password: '123456' } }, as: :json
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 end
