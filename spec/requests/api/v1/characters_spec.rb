@@ -7,16 +7,6 @@ RSpec.describe 'Characters API', type: :request do
     @movie = create(:movie)
     @character = create(:character)
     @headers = { 'Authorization' => JsonWebToken.encode(user_id: @user.id) }
-    @new_character_params = {
-      character: {
-        picture: 'pj_pic.jpg',
-        name: 'P.J.',
-        age: 18,
-        weight: 86.55,
-        story: "Max's best friend since childhood.",
-        movie_id: @movie.id
-      }
-    }
   end
 
   describe 'GET /characters' do
@@ -58,21 +48,33 @@ RSpec.describe 'Characters API', type: :request do
   end
 
   describe 'POST /characters' do
+    let(:new_character_params) do
+      {
+        character: {
+          picture: 'pj_pic.jpg',
+          name: 'P.J.',
+          age: 18,
+          weight: 86.55,
+          story: "Max's best friend since childhood.",
+          movie_id: @movie.id
+        }
+      }
+    end
+
     it 'should create a new character' do
       expect {
-        post api_v1_characters_path, params: @new_character_params, headers: @headers
+        post api_v1_characters_path, params: new_character_params, headers: @headers
       }.to change { Character.count }.from(1).to(2)
 
       expect(response).to have_http_status(:created)
 
       last_character = Character.last
-      expected_response = build_character_expected_response(last_character)
-      expect(response_body).to eq(expected_response)
+      expect(response_body).to eq(build_character_expected_response(last_character))
     end
 
     it 'should not create a new character' do
       expect {
-        post api_v1_characters_path, params: @new_character_params
+        post api_v1_characters_path, params: new_character_params
       }.to_not(change { Character.count })
 
       expect(response).to have_http_status(:unauthorized)
