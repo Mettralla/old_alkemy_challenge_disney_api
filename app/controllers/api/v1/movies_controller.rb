@@ -4,15 +4,16 @@ module Api
   module V1
     class MoviesController < ApplicationController
       before_action :set_movie, only: %i[show update destroy]
+      before_action :authenticate_user!, only: %i[index show create update destroy]
 
       def index
         @movies = Movie.all
 
-        render json: MoviesRepresenter.new(@movies).as_json
+        render json: MoviesRepresenter.new(@movies).as_json, status: :ok
       end
 
       def show
-        render json: MovieRepresenter.new(@movie).as_json
+        render json: MovieRepresenter.new(@movie).as_json, status: :ok
       end
 
       def create
