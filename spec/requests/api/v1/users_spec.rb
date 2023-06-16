@@ -14,4 +14,21 @@ RSpec.describe "Users API", type: :request do
       expect(@user.email).to eq(json_response['email'])
     end
   end
+
+  describe 'POST /users' do
+    it "should create user" do
+      expect {
+        post api_v1_users_path, params: { user: { email: 'test1@test1.com', password: 'testPassword123' } }, as: :json
+      }.to change { User.count }.from(1).to(2)
+      expect(response).to have_http_status(:created)
+    end
+
+    it "should not create user with taken email" do
+      expect {
+        post api_v1_users_path, params: { user: { email: 'toot@toot.com', password: 'trustno1' } }, as: :json
+      }.not_to change { User.count }
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+  end
 end
