@@ -7,6 +7,12 @@ RSpec.describe 'Characters API', type: :request do
     @movie = create(:movie)
     @character = create(:character)
     @headers = { 'Authorization' => JsonWebToken.encode(user_id: @user.id) }
+    # @movie_lion_king = create(:movie, title: 'The Lion King', release_date: Date.new(1994, 6, 15),
+    #     raiting: 8.5, genre_id: @genre.id, picture: 'the_lion_king.jpg')
+    # @simba = create(:character, picture: 'simba.jpg', name: 'Simba', age: 2, weight: 50,
+    #     story: 'Simba is the main protagonist of The Lion King', movie_id: @movie_lion_king.id)
+    # @pumba = create(:character, picture: 'pumba.jpg', name: 'pumba', age: 20, weight: 150,
+    #     story: 'Pumba is the lovely warhog of The Lion King', movie_id: @movie_lion_king.id)
   end
 
   describe 'GET /characters' do
@@ -29,6 +35,33 @@ RSpec.describe 'Characters API', type: :request do
       get api_v1_characters_path
 
       expect(response).to have_http_status(:unauthorized)
+    end
+  end
+
+  describe 'GET /characters?search' do
+
+    it 'filters characters by name' do
+      get api_v1_characters_path, headers: @headers, params: { name: 'max' }
+
+      expect(response).to have_http_status(:success)
+      expect(response_body.size).to eq(1)
+      expect(response_body).to eq(character_index_expected_response(@character))
+    end
+
+    it 'filters characters by age' do
+      get api_v1_characters_path, headers: @headers, params: { age: 18 }
+
+      expect(response).to have_http_status(:success)
+      expect(response_body.size).to eq(1)
+      expect(response_body).to eq(character_index_expected_response(@character))
+    end
+
+    it 'filters characters by movie' do
+      get api_v1_characters_path, headers: @headers, params: { movie: @movie.id }
+
+      expect(response).to have_http_status(:success)
+      expect(response_body.size).to eq(1)
+      expect(response_body).to eq(character_index_expected_response(@character))
     end
   end
 

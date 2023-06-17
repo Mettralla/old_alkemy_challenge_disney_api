@@ -13,6 +13,15 @@ module TestHelpers
     }
   end
 
+  def character_index_expected_response(character)
+    [
+      {
+        'picture' => character.picture,
+        'name' => character.name
+      }
+    ]
+  end
+
   def build_movie_expected_response(movie)
     {
       'id' => movie.id,
