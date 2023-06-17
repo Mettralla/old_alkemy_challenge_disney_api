@@ -14,21 +14,57 @@ RSpec.describe "Movies API", type: :request do
 
       expect(response).to have_http_status(:ok)
       expect(response_body.size).to eq(1)
-      expect(response_body).to eq(
-        [
-          {
-            'picture' => @movie.picture,
-            'title' => @movie.title,
-            'release_date' => @movie.release_date.strftime('%d/%m/%Y')
-          }
-        ]
-      )
+      expect(response_body).to eq(movie_index_expected_response(@movie))
     end
 
     it 'should not return all movies' do
       get api_v1_movies_path
 
       expect(response).to have_http_status(:unauthorized)
+    end
+  end
+  
+  describe 'GET /movies?search' do
+    let!(:genre2) { create(:genre, id: 30, name: 'animation', picture: 'animation.jpg')}
+    let!(:movie1) { create(:movie, id: 50, picture: 'movie_1.jpg', title: 'Movie 1', release_date: '2022-01-01', raiting:2, genre_id: @genre.id) }
+    let!(:movie2) { create(:movie, id: 51, picture: 'movie_2.jpg', title: 'Movie 2', release_date: '2022-02-01', raiting:2, genre_id: genre2.id) }
+    let!(:movie3) { create(:movie, id: 52, picture: 'movie_3.jpg', title: 'Movie 3', release_date: '2022-03-01', raiting:2, genre_id: @genre.id) }
+
+    it 'filters movie by title' do
+      get api_v1_movies_path, headers: @headers, params: { title: 'goofy' }
+
+      expect(response).to have_http_status(:success)
+      expect(response_body).to eq(movie_index_expected_response(@movie))
+    end
+
+    it 'filters movie by genre' do
+      get api_v1_movies_path, headers: @headers, params: { genre_id: @genre.id }
+
+      expect(response).to have_http_status(:success)
+      expect(response_body.size).to eq(3)
+    end
+
+
+    it 'returns movies in ascending order of release date' do
+      get '/api/v1/movies', headers: @headers, params: { order: 'ASC' }
+
+      expect(response).to have_http_status(:ok)
+      expect(response_body.size).to eq(4)
+      expect(response_body[0]['title']).to eq(@movie.title)
+      expect(response_body[1]['title']).to eq('Movie 1')
+      expect(response_body[2]['title']).to eq('Movie 2')
+      expect(response_body[3]['title']).to eq('Movie 3')
+    end
+
+    it 'returns movies in descending order of release date' do
+      get '/api/v1/movies', headers: @headers, params: { order: 'DESC' }
+
+      expect(response).to have_http_status(:ok)
+      expect(response_body.size).to eq(4)
+      expect(response_body[0]['title']).to eq('Movie 3')
+      expect(response_body[1]['title']).to eq('Movie 2')
+      expect(response_body[2]['title']).to eq('Movie 1')
+      expect(response_body[3]['title']).to eq(@movie.title)
     end
   end
 

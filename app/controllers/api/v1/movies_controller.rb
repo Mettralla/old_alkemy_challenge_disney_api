@@ -9,6 +9,15 @@ module Api
       def index
         @movies = Movie.all
 
+        @movies = @movies.where('title ILIKE ?', "%#{params[:title]}%") if params[:title].present?
+        @movies = @movies.where(genre_id: params[:genre_id]) if params[:genre_id].present?
+
+        if params[:order] == 'ASC'
+          @movies = @movies.order(release_date: :asc)
+        elsif params[:order] == 'DESC'
+          @movies = @movies.order(release_date: :desc)
+        end
+
         render json: MoviesRepresenter.new(@movies).as_json, status: :ok
       end
 

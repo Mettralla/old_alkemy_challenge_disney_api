@@ -33,4 +33,14 @@ module TestHelpers
       'cast' => movie.characters.as_json
     }
   end
+
+  def movie_index_expected_response(movie)
+    [
+      {
+        'picture' => movie.picture,
+        'title' => movie.title,
+        'release_date' => movie.release_date.strftime('%d/%m/%Y')
+      }
+    ]
+  end
 end
