@@ -17,7 +17,15 @@ RSpec.describe "Movies API", type: :request do
       expect(response_body).to eq(movie_index_expected_response(@movie))
     end
 
-    it 'should not return all movies' do
+    it 'should return an empty array when there are no movies' do
+      Movie.destroy_all
+      get api_v1_movies_path, headers: @headers
+
+      expect(response).to have_http_status(:success)
+      expect(response_body).to eq([])
+    end
+
+    it 'should not be authorized to see all movies' do
       get api_v1_movies_path
 
       expect(response).to have_http_status(:unauthorized)
@@ -75,7 +83,14 @@ RSpec.describe "Movies API", type: :request do
       expect(response_body).to eq(build_movie_expected_response(@movie))
     end
 
-    it 'should not return movie details' do
+    it 'should return an empty list when the genre does not exist' do
+      get api_v1_movie_path(666), headers: @headers
+
+      expect(response).to have_http_status(:not_found)
+      expect(response_body).to eq([])
+    end
+
+    it 'should not be authorized to see movie details' do
       get api_v1_movie_path(@movie)
 
       expect(response).to have_http_status(:unauthorized)
@@ -106,7 +121,23 @@ RSpec.describe "Movies API", type: :request do
       expect(response_body).to eq(build_movie_expected_response(last_movie))
     end
 
-    it 'should not create a new movie' do
+    it 'should return :unprocessable_entity when character params are invalid' do
+      invalid_params = {
+        movie: {
+          picture: 'red.jpg',
+          title: 'Red',
+          release_date: '01/03/2022',
+          raiting: 11,
+          genre_id: @genre.id
+        }
+      }
+
+      post api_v1_movies_path, params: invalid_params, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'should not be authorized to create a new movie' do
       expect {
         post api_v1_movies_path, params: new_movie_params
       }.to_not(change { Movie.count })
@@ -125,7 +156,13 @@ RSpec.describe "Movies API", type: :request do
       expect(response_body).to eq(build_movie_expected_response(movie_updated))
     end
 
-    it 'should not update movie' do
+    it 'should return :unprocessable_entity when movie params are invalid' do
+      patch api_v1_movie_path(@movie), params: { movie: { genre_id: '' } }, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'should not be authorized to update movie' do
       patch api_v1_movie_path(@movie), params: { movie: { title: 'Goofy 2: The Movie' } }
 
       expect(response).to have_http_status(:unauthorized)

@@ -8,7 +8,7 @@ RSpec.describe "Genres API", type: :request do
   end
 
   describe 'GET /genres' do
-    let!(:animation) { create(:genre, id: 30, name: 'animation', picture: 'animation.jpg')}
+    let!(:animation) { create(:genre, id: 30, name: 'animation', picture: 'animation.jpg') }
 
     it 'should return all genres' do
       get api_v1_genres_path, headers: @headers
@@ -18,6 +18,14 @@ RSpec.describe "Genres API", type: :request do
 
       genres_in_index = [@genre, animation]
       expect(response_body).to eq(genres_index_expected_response(genres_in_index))
+    end
+
+    it 'should return an empty array when there are no genres' do
+      Genre.destroy_all
+      get api_v1_genres_path, headers: @headers
+
+      expect(response).to have_http_status(:success)
+      expect(response_body).to eq([])
     end
 
     it 'should not be authorized to see all genres' do
@@ -33,6 +41,13 @@ RSpec.describe "Genres API", type: :request do
 
       expect(response).to have_http_status(:ok)
       expect(response_body).to eq(build_genre_expected_response(@genre))
+    end
+
+    it 'should return an empty list when the genre does not exist' do
+      get api_v1_genre_path(666), headers: @headers
+
+      expect(response).to have_http_status(:not_found)
+      expect(response_body).to eq([])
     end
 
     it 'should not be authorized to see genre details' do
@@ -56,6 +71,14 @@ RSpec.describe "Genres API", type: :request do
       expect(response_body).to eq(build_genre_expected_response(last_character))
     end
 
+    it 'should return :unprocessable_entity when genre params are invalid' do
+      invalid_params = { genre: { name: '', picture: '' } }
+
+      post api_v1_genres_path, params: invalid_params, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
     it 'should not be authorized to create a new genre' do
       expect {
         post api_v1_genres_path, params: new_genre_params
@@ -73,6 +96,14 @@ RSpec.describe "Genres API", type: :request do
 
       genre_updated = Genre.find(@genre.id)
       expect(response_body).to eq(build_genre_expected_response(genre_updated))
+    end
+
+    it 'should return :unprocessable_entity when genre params are invalid' do
+      invalid_params = { genre: { name: '', picture: '' } }
+
+      put api_v1_genre_path(@genre), params: invalid_params, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it 'should not be authorized to update character' do

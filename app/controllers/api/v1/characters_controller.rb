@@ -55,15 +55,15 @@ module Api
       end
 
       def filter_by_name(characters)
-        @characters_by_name = characters.where('name ILIKE ?', "%#{params[:name]}%")
+        characters.where('name ILIKE ?', "%#{params[:name]}%")
       end
 
       def filter_by_age(characters)
-        @characters_by_age = characters.where(age: params[:age])
+        characters.where(age: params[:age])
       end
 
       def filter_by_movies(characters)
-        @characters_by_movie = characters.where(movie_id: params[:movie_id])
+        characters.where(movie_id: params[:movie_id])
       end
     end
   end

@@ -9,14 +9,9 @@ module Api
       def index
         @movies = Movie.all
 
-        @movies = @movies.where('title ILIKE ?', "%#{params[:title]}%") if params[:title].present?
-        @movies = @movies.where(genre_id: params[:genre_id]) if params[:genre_id].present?
-
-        if params[:order] == 'ASC'
-          @movies = @movies.order(release_date: :asc)
-        elsif params[:order] == 'DESC'
-          @movies = @movies.order(release_date: :desc)
-        end
+        @movies = filter_by_title(@movies) if params[:title].present?
+        @movies = filter_by_genre(@movies) if params[:genre_id].present?
+        @movies = order_by_release(@movies) if params[:order].present?
 
         render json: MoviesRepresenter.new(@movies).as_json, status: :ok
       end
@@ -57,6 +52,27 @@ module Api
 
       def set_movie
         @movie = Movie.find(params[:id])
+      end
+
+      def filter_by_title(movies)
+        movies.where('title ILIKE ?', "%#{params[:title]}%")
+      end
+
+      def filter_by_genre(movies)
+        movies.where(genre_id: params[:genre_id])
+      end
+
+      def order_by_release(movies)
+        order = params[:order]
+
+        case order
+        when 'ASC'
+          movies.order(release_date: :asc)
+        when 'DESC'
+          movies.order(release_date: :desc)
+        else
+          movies
+        end
       end
     end
   end

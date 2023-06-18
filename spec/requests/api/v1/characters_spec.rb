@@ -18,7 +18,15 @@ RSpec.describe 'Characters API', type: :request do
       expect(response_body).to eq(character_index_expected_response(@character))
     end
 
-    it 'should not return all characters' do
+    it 'should return an empty array when there are no character' do
+      Character.destroy_all
+      get api_v1_characters_path, headers: @headers
+
+      expect(response).to have_http_status(:success)
+      expect(response_body).to eq([])
+    end
+
+    it 'should not be authorized to see all characters' do
       get api_v1_characters_path
 
       expect(response).to have_http_status(:unauthorized)
@@ -53,14 +61,21 @@ RSpec.describe 'Characters API', type: :request do
   end
 
   describe 'GET /character/:id' do
-    it 'should return a character' do
+    it 'should return a character details' do
       get api_v1_character_path(@character), headers: @headers
 
       expect(response).to have_http_status(:ok)
       expect(response_body).to eq(build_character_expected_response(@character))
     end
 
-    it 'should not return a character' do
+    it 'should return an empty list when the genre does not exist' do
+      get api_v1_character_path(666), headers: @headers
+
+      expect(response).to have_http_status(:not_found)
+      expect(response_body).to eq([])
+    end
+
+    it 'should not be authorized to see character details' do
       get api_v1_character_path(@character)
 
       expect(response).to have_http_status(:unauthorized)
@@ -88,11 +103,27 @@ RSpec.describe 'Characters API', type: :request do
 
       expect(response).to have_http_status(:created)
 
-      last_character = Character.last
-      expect(response_body).to eq(build_character_expected_response(last_character))
+      expect(response_body).to eq(build_character_expected_response(Character.last))
     end
 
-    it 'should not create a new character' do
+    it 'should return :unprocessable_entity when character params are invalid' do
+      invalid_params = {
+        character: {
+          picture: 'vi.jpg',
+          name: 'Vi', # #Nombre tiene menos de 3 letras
+          age: 25,
+          weight: 70,
+          story: 'Hermana de Jinx',
+          movie_id: 1
+        }
+      }
+
+      post api_v1_characters_path, params: invalid_params, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'should not be authorized to create a new character' do
       expect {
         post api_v1_characters_path, params: new_character_params
       }.to_not(change { Character.count })
@@ -111,7 +142,13 @@ RSpec.describe 'Characters API', type: :request do
       expect(response_body).to eq(build_character_expected_response(character_updated))
     end
 
-    it 'should not update character' do
+    it 'should return :unprocessable_entity when character params are invalid' do
+      patch api_v1_character_path(@character), params: { character: { name: 'Mx' } }, headers: @headers
+
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'should not be authorized to update character' do
       patch api_v1_character_path(@character), params: { character: { name: 'Maximilian Goofy' } }
 
       expect(response).to have_http_status(:unauthorized)
