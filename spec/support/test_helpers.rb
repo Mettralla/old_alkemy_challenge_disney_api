@@ -60,4 +60,11 @@ module TestHelpers
       'picture' => genre.picture
     }
   end
+
+  def build_user_expected_response(user)
+    {
+      'id' => user.id,
+      'email' => user.email
+    }
+  end
 end

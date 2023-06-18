@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users/@user.id
   def show
-    render json: @user
+    render json: UserRepresenter.new(@user).as_json, status: :ok
   end
 
   # POST /users
@@ -35,7 +35,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-  # Only allow a trusted parameter 'white list' through
+
+    # Only allow a trusted parameter 'white list' through
     def user_params
       params.require(:user).permit(:email, :password)
     end

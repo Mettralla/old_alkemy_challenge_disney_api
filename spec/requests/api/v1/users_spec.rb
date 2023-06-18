@@ -6,18 +6,17 @@ RSpec.describe "Users API", type: :request do
     @headers = { Authorization: JsonWebToken.encode(user_id: @user.id) }
   end
 
-  describe "GET /users/:id" do
+  describe 'GET /users/:id' do
     it 'should show a user' do
       get api_v1_user_path(@user)
       expect(response).to have_http_status(:success)
-      # Test response contains the correct email
-      json_response = JSON.parse(response.body)
-      expect(@user.email).to eq(json_response['email'])
+
+      expect(response_body).to eq(build_user_expected_response(@user))
     end
   end
 
   describe 'POST /users' do
-    it 'should create user 'do
+    it 'should create user ' do
       expect {
         post api_v1_users_path, params: { user: { email: 'test1@test1.com', password: 'testPassword123' } }, as: :json
       }.to change { User.count }.from(1).to(2)
