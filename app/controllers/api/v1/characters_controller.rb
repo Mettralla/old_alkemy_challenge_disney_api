@@ -9,9 +9,9 @@ module Api
       def index
         @characters = Character.all
 
-        @characters = @characters.where('name ILIKE ?', "%#{params[:name]}%") if params[:name].present?
-        @characters = @characters.where(age: params[:age]) if params[:age].present?
-        @characters = @characters.where(movie_id: params[:movie_id]) if params[:movie_id].present?
+        @characters = filter_by_name(@characters) if params[:name].present?
+        @characters = filter_by_age(@characters) if params[:age].present?
+        @characters = filter_by_movies(@characters) if params[:movie_id].present?
 
         render json: CharactersRepresenter.new(@characters).as_json
       end
@@ -55,15 +55,15 @@ module Api
       end
 
       def filter_by_name(characters)
-        characters.where('name ILIKE ?', "%#{params[:name]}%") if params[:name].present?
+        @characters_by_name = characters.where('name ILIKE ?', "%#{params[:name]}%")
       end
 
       def filter_by_age(characters)
-        characters.where(age: params[:age]) if params[:age].present?
+        @characters_by_age = characters.where(age: params[:age])
       end
 
       def filter_by_movies(characters)
-        characters.where(movie_id: params[:movie_id]) if params[:movie_id].present?
+        @characters_by_movie = characters.where(movie_id: params[:movie_id])
       end
     end
   end

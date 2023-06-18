@@ -7,12 +7,6 @@ RSpec.describe 'Characters API', type: :request do
     @movie = create(:movie)
     @character = create(:character)
     @headers = { 'Authorization' => JsonWebToken.encode(user_id: @user.id) }
-    # @movie_lion_king = create(:movie, title: 'The Lion King', release_date: Date.new(1994, 6, 15),
-    #     raiting: 8.5, genre_id: @genre.id, picture: 'the_lion_king.jpg')
-    # @simba = create(:character, picture: 'simba.jpg', name: 'Simba', age: 2, weight: 50,
-    #     story: 'Simba is the main protagonist of The Lion King', movie_id: @movie_lion_king.id)
-    # @pumba = create(:character, picture: 'pumba.jpg', name: 'pumba', age: 20, weight: 150,
-    #     story: 'Pumba is the lovely warhog of The Lion King', movie_id: @movie_lion_king.id)
   end
 
   describe 'GET /characters' do
@@ -21,14 +15,7 @@ RSpec.describe 'Characters API', type: :request do
 
       expect(response).to have_http_status(:success)
       expect(response_body.size).to eq(1)
-      expect(response_body).to eq(
-        [
-          {
-            'picture' => @character.picture,
-            'name' => @character.name
-          }
-        ]
-      )
+      expect(response_body).to eq(character_index_expected_response(@character))
     end
 
     it 'should not return all characters' do

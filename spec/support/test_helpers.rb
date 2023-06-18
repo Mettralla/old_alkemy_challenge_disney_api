@@ -43,4 +43,21 @@ module TestHelpers
       }
     ]
   end
+
+  def genres_index_expected_response(genres)
+    genres.map do |genre|
+      {
+        'name' => genre.name,
+        'picture' => genre.picture
+      }
+    end
+  end
+
+  def build_genre_expected_response(genre)
+    {
+      'id' => genre.id,
+      'name' => genre.name,
+      'picture' => genre.picture
+    }
+  end
 end

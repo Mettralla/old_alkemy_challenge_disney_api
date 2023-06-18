@@ -1,4 +1,5 @@
-# 
+# frozen_string_literal: true
+
 class CharactersRepresenter
   def initialize(characters)
     @characters = characters

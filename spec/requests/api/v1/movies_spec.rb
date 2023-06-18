@@ -23,7 +23,7 @@ RSpec.describe "Movies API", type: :request do
       expect(response).to have_http_status(:unauthorized)
     end
   end
-  
+
   describe 'GET /movies?search' do
     let!(:genre2) { create(:genre, id: 30, name: 'animation', picture: 'animation.jpg')}
     let!(:movie1) { create(:movie, id: 50, picture: 'movie_1.jpg', title: 'Movie 1', release_date: '2022-01-01', raiting:2, genre_id: @genre.id) }
@@ -43,7 +43,6 @@ RSpec.describe "Movies API", type: :request do
       expect(response).to have_http_status(:success)
       expect(response_body.size).to eq(3)
     end
-
 
     it 'returns movies in ascending order of release date' do
       get '/api/v1/movies', headers: @headers, params: { order: 'ASC' }
