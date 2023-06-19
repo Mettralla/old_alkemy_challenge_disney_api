@@ -1,0 +1,3309 @@
+{
+	"info": {
+		"_postman_id": "50a63f4d-d892-4aed-bca4-b1df34c3f787",
+		"name": "Alkemy Disney API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"toot@gmail.com\",\n        \"password\": \"g00d_p4$$\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/users",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"toot@gmail.com\",\n        \"password\": \"g00d_p4$$\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/users",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"8cef673e6b0667ed766d131497429d13\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "60f31f45-f8a4-4ae7-af7c-d3da6030a968"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "1.741332"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.45, sql.active_record;dur=721.58, process_action.action_controller;dur=1248.07"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"email\": \"toot@gmail.com\",\n    \"password_digest\": \"$2a$12$FNsLJtUde5HGHj2.yuE9TeTXP/PhhqtECB64f/cd.LWyJOfb1Z6f.\",\n    \"created_at\": \"2023-06-18T18:44:58.307Z\",\n    \"updated_at\": \"2023-06-18T18:44:58.307Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Show User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/users/1",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/users/1",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f34f6e67f0f9e6fb0d10395bc6ef88ed\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "2a564080-4b9c-4fe2-bc5e-7d5a3c759d39"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.423048"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "sql.active_record;dur=195.38, start_processing.action_controller;dur=3.28, instantiation.active_record;dur=5.04, process_action.action_controller;dur=129.20"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"email\": \"toot@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"example@gmail.com\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/users/1",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"example@gmail.com\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/users/1",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"864b07982a4a4b516415b65f3513f734\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a3508460-9a50-4fed-a97e-6bcb0fbd403c"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.140429"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.46, sql.active_record;dur=39.52, instantiation.active_record;dur=0.13, process_action.action_controller;dur=137.03"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"example@gmail.com\",\n    \"id\": 1,\n    \"password_digest\": \"$2a$12$FNsLJtUde5HGHj2.yuE9TeTXP/PhhqtECB64f/cd.LWyJOfb1Z6f.\",\n    \"created_at\": \"2023-06-18T18:44:58.307Z\",\n    \"updated_at\": \"2023-06-18T21:30:31.845Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/users/1",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/users/1",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "a0364bd0-ee87-4f5e-9b43-58c3df92493a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.258992"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.21, sql.active_record;dur=61.49, instantiation.active_record;dur=0.11, process_action.action_controller;dur=65.86"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Tokens",
+			"item": [
+				{
+					"name": "Create Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"email\": \"toot@gmail.com\",\n        \"password\": \"g00d_p4$$\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/tokens",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"tokens"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"toot@gmail.com\",\n        \"password\": \"g00d_p4$$\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/tokens",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"tokens"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4abfbdbff7d20b6b9251315dc64b8220\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "6e7dc954-2099-42f2-b4fa-6ae963280353"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.420021"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.25, sql.active_record;dur=34.04, instantiation.active_record;dur=0.46, process_action.action_controller;dur=384.68"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2ODcyMDA3Mjl9.ejT3j1pDf1tC4udz33tmBQxuCSZzch3fFqq1q6njXS0\",\n    \"email\": \"toot@gmail.com\"\n}"
+						},
+						{
+							"name": "Create Token - Credenciales Incorrectas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"user\": {\n        \"email\": \"toot@gmail.com\",\n        \"password\": \"g00d_p4$$\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/tokens",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"tokens"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "4966581d-3936-4446-a4e1-fea12f9ad0e9"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.309766"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.29, sql.active_record;dur=2.99, instantiation.active_record;dur=0.02, process_action.action_controller;dur=7.34"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Credenciales incorrectas\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "All Genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/genres",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Genres",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/genres",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"79e14daf62befba29c12ad299d7a0005\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "6013f514-7ddf-4613-b9a4-4a0e4560cc22"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.123093"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.26, sql.active_record;dur=1.96, instantiation.active_record;dur=0.12, process_action.action_controller;dur=72.09"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"name\": \"Action\",\n        \"picture\": \"action.jpg\"\n    },\n    {\n        \"name\": \"Adventure\",\n        \"picture\": \"adventure.jpg\"\n    },\n    {\n        \"name\": \"Comedy\",\n        \"picture\": \"comedy.jpg\"\n    },\n    {\n        \"name\": \"Drama\",\n        \"picture\": \"drama.jpg\"\n    },\n    {\n        \"name\": \"Horror\",\n        \"picture\": \"horror.jpg\"\n    },\n    {\n        \"name\": \"Animation\",\n        \"picture\": \"animation.jpg\"\n    },\n    {\n        \"name\": \"Family\",\n        \"picture\": \"family.jpg\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Show Genre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/genres/14",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"genres",
+								"14"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Genre",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/genres/15",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"genres",
+										"15"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"671174bb0cc1dbe00bd8960cc07ae290\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "9dd64a5c-f244-4b81-a20f-c6ffe063f0b2"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.078291"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=4.64, sql.active_record;dur=4.08, instantiation.active_record;dur=0.13, process_action.action_controller;dur=70.10"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 15,\n    \"name\": \"Family\",\n    \"picture\": \"family.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Genre",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"genre\": {\n        \"picture\": \"documentary.jpg\",\n        \"name\": \"Documentary\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/genres",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"genres"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Genre",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"genre\": {\n        \"picture\": \"documentary.jpg\",\n        \"name\": \"Documentary\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/genres",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"genres"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3fcbb76c33f3dcbedd88aa07de7f175b\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "352a5d2b-2919-4092-ae89-8b65ef286378"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.059968"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.45, sql.active_record;dur=36.79, instantiation.active_record;dur=0.05, process_action.action_controller;dur=46.31"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 16,\n    \"name\": \"Documentary\",\n    \"picture\": \"documentary.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Genre",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"genre\": {\n        \"picture\": \"documental.jpg\",\n        \"name\": \"Documental\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/genres/16",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"genres",
+								"16"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Genre",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"genre\": {\n        \"picture\": \"documental.jpg\",\n        \"name\": \"Documental\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/genres/16",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"genres",
+										"16"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f231f056b5876b885326227b21c77e4d\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "ff26c941-7a5e-4f0e-9fc8-1386fa3e1278"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.062022"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=7.40, sql.active_record;dur=23.01, instantiation.active_record;dur=2.34, process_action.action_controller;dur=47.17"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 16,\n    \"name\": \"Documental\",\n    \"picture\": \"documental.jpg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Genre",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/genres/16",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"genres",
+								"16"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Genre",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/genres/16",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"genres",
+										"16"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "7cb75007-0bb6-4e1c-bef0-4ca1e8111c5a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.047381"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=1.59, sql.active_record;dur=27.46, instantiation.active_record;dur=0.16, process_action.action_controller;dur=40.78"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Movies",
+			"item": [
+				{
+					"name": "Movie Search",
+					"item": [
+						{
+							"name": "Search Movie by Title",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/movies?title=lion",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "lion"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search Movie by Title",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/movies?title=lion",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"movies"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "lion"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"990434a6f683470e17cb15ab27aeffb9\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "612a8e80-a70a-4053-b71c-fac1cdaccdb7"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.116359"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=3.00, sql.active_record;dur=88.25, instantiation.active_record;dur=0.10, process_action.action_controller;dur=106.48"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"the_lion_king.jpg\",\n        \"title\": \"The Lion King\",\n        \"release_date\": \"15/06/1994\"\n    },\n    {\n        \"picture\": \"the_lion_guard.jpg\",\n        \"title\": \"The Lion Guard\",\n        \"release_date\": \"15/01/2016\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Search Movie by Genre",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/movies?genre_id=10",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "genre_id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search Movie by Genre",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/movies?genre_id=10",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"movies"
+											],
+											"query": [
+												{
+													"key": "genre_id",
+													"value": "10"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"fc39556819cbedb8efda368d1ea41f44\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "bafcb8f5-7631-4531-a863-fead380cd91d"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.017259"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=1.52, sql.active_record;dur=6.81, instantiation.active_record;dur=0.09, process_action.action_controller;dur=11.24"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"the_lion_king.jpg\",\n        \"title\": \"The Lion King\",\n        \"release_date\": \"15/06/1994\"\n    },\n    {\n        \"picture\": \"aladdin.jpg\",\n        \"title\": \"Aladdin\",\n        \"release_date\": \"25/11/1992\"\n    },\n    {\n        \"picture\": \"frozen.jpg\",\n        \"title\": \"Frozen\",\n        \"release_date\": \"27/11/2013\"\n    },\n    {\n        \"picture\": \"toy_story.jpg\",\n        \"title\": \"Toy Story\",\n        \"release_date\": \"22/11/1995\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Order Movies by Release ASC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/movies?order=ASC",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "ASC"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Order Movies by Release ASC",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/movies?order=ASC",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"movies"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "ASC"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"65c49ca68af69b267bb0adc2ddaf4d32\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "398ac359-8432-43b8-9f38-6051b7143545"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.055838"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=0.31, sql.active_record;dur=43.67, instantiation.active_record;dur=0.13, process_action.action_controller;dur=53.23"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"aladdin.jpg\",\n        \"title\": \"Aladdin\",\n        \"release_date\": \"25/11/1992\"\n    },\n    {\n        \"picture\": \"the_lion_king.jpg\",\n        \"title\": \"The Lion King\",\n        \"release_date\": \"15/06/1994\"\n    },\n    {\n        \"picture\": \"toy_story.jpg\",\n        \"title\": \"Toy Story\",\n        \"release_date\": \"22/11/1995\"\n    },\n    {\n        \"picture\": \"finding_nemo\",\n        \"title\": \"Finding Nemo\",\n        \"release_date\": \"30/05/2003\"\n    },\n    {\n        \"picture\": \"the_incredibles\",\n        \"title\": \"The Incredibles\",\n        \"release_date\": \"27/10/2004\"\n    },\n    {\n        \"picture\": \"frozen.jpg\",\n        \"title\": \"Frozen\",\n        \"release_date\": \"27/11/2013\"\n    },\n    {\n        \"picture\": \"the_lion_guard.jpg\",\n        \"title\": \"The Lion Guard\",\n        \"release_date\": \"15/01/2016\"\n    },\n    {\n        \"picture\": \"coco.jpg\",\n        \"title\": \"Coco\",\n        \"release_date\": \"20/10/2017\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Order Movies by Release DESC",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/movies?order=DESC",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									],
+									"query": [
+										{
+											"key": "order",
+											"value": "DESC"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Order Movies by Release DESC",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/movies?order=DESC",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"movies"
+											],
+											"query": [
+												{
+													"key": "order",
+													"value": "DESC"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"5d727490691c009c5ba15c01670e2a61\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "16e704ab-8198-40a2-a707-4ba23e8ee6fc"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.014332"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=0.28, sql.active_record;dur=6.09, instantiation.active_record;dur=0.11, process_action.action_controller;dur=10.67"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"coco.jpg\",\n        \"title\": \"Coco\",\n        \"release_date\": \"20/10/2017\"\n    },\n    {\n        \"picture\": \"the_lion_guard.jpg\",\n        \"title\": \"The Lion Guard\",\n        \"release_date\": \"15/01/2016\"\n    },\n    {\n        \"picture\": \"frozen.jpg\",\n        \"title\": \"Frozen\",\n        \"release_date\": \"27/11/2013\"\n    },\n    {\n        \"picture\": \"the_incredibles\",\n        \"title\": \"The Incredibles\",\n        \"release_date\": \"27/10/2004\"\n    },\n    {\n        \"picture\": \"finding_nemo\",\n        \"title\": \"Finding Nemo\",\n        \"release_date\": \"30/05/2003\"\n    },\n    {\n        \"picture\": \"toy_story.jpg\",\n        \"title\": \"Toy Story\",\n        \"release_date\": \"22/11/1995\"\n    },\n    {\n        \"picture\": \"the_lion_king.jpg\",\n        \"title\": \"The Lion King\",\n        \"release_date\": \"15/06/1994\"\n    },\n    {\n        \"picture\": \"aladdin.jpg\",\n        \"title\": \"Aladdin\",\n        \"release_date\": \"25/11/1992\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "All Movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{jwt_token}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{site}}/movies",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Movies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/movies",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"9acbe6870b6e8eba2e747a76d639a6bf\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "ee3238e7-4770-47ed-9700-649ec2813506"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.062661"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.12, sql.active_record;dur=1.43, instantiation.active_record;dur=0.08, process_action.action_controller;dur=32.05"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"picture\": \"the_lion_king.jpg\",\n        \"title\": \"The Lion King\",\n        \"release_date\": \"15/06/1994\"\n    },\n    {\n        \"picture\": \"aladdin.jpg\",\n        \"title\": \"Aladdin\",\n        \"release_date\": \"25/11/1992\"\n    },\n    {\n        \"picture\": \"frozen.jpg\",\n        \"title\": \"Frozen\",\n        \"release_date\": \"27/11/2013\"\n    },\n    {\n        \"picture\": \"toy_story.jpg\",\n        \"title\": \"Toy Story\",\n        \"release_date\": \"22/11/1995\"\n    },\n    {\n        \"picture\": \"nemo.jpg\",\n        \"title\": \"Finding Nemo\",\n        \"release_date\": \"20/05/2003\"\n    },\n    {\n        \"picture\": \"coco.jpg\",\n        \"title\": \"Coco\",\n        \"release_date\": \"20/10/2017\"\n    }\n]"
+						},
+						{
+							"name": "All Movies - Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{site}}/movies",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "624cb58f-6d7d-48e9-9064-bc82f4b292b7"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.002725"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.34, halted_callback.action_controller;dur=0.15, process_action.action_controller;dur=0.48"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Acceso no autorizado\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/movies/6",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"movies",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Movie",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/movies/3",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21f5deea316228fff156965da6e8987e\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "9206aa52-ac23-43b2-bfa9-53880a43541a"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.396219"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.50, sql.active_record;dur=79.42, instantiation.active_record;dur=9.02, process_action.action_controller;dur=391.49"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"picture\": \"the_lion_king.jpg\",\n    \"title\": \"The Lion King\",\n    \"release_date\": \"15/06/1994\",\n    \"raiting\": 8,\n    \"genre_id\": \"Adventure\",\n    \"cast\": [\n        {\n            \"id\": 2,\n            \"picture\": \"simba.jpg\",\n            \"name\": \"simba\",\n            \"age\": 2,\n            \"weight\": 50,\n            \"story\": \"Simba is the main protagonist of The Lion King\",\n            \"created_at\": \"2023-06-15T20:11:59.849Z\",\n            \"updated_at\": \"2023-06-15T20:11:59.849Z\",\n            \"movie_id\": 3\n        },\n        {\n            \"id\": 4,\n            \"picture\": \"pumba.jpg\",\n            \"name\": \"pumba\",\n            \"age\": 20,\n            \"weight\": 150,\n            \"story\": \"Pumba is lovable warthog and best friend of Timon in The Lion King\",\n            \"created_at\": \"2023-06-15T20:52:45.014Z\",\n            \"updated_at\": \"2023-06-15T20:52:45.014Z\",\n            \"movie_id\": 3\n        }\n    ]\n}"
+						},
+						{
+							"name": "Show Movie - Not_Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/movies/20",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies",
+										"20"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "e55b207f-e6b1-4627-aefa-dd7e8d8b21d2"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.030418"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=7.97, sql.active_record;dur=1.00, instantiation.active_record;dur=0.03, process_action.action_controller;dur=4.00"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[]"
+						}
+					]
+				},
+				{
+					"name": "Create Movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movie\": {\n        \"picture\": \"beauty_beast.jpg\",\n        \"title\": \"Beauty and the Beast\",\n        \"release_date\": \"12/11/1991\",\n        \"raiting\": 8.0,\n        \"genre_id\": 14\n    }\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/movies",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Movie",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"movie\": {\n        \"picture\": \"finding_nemo\",\n        \"title\": \"Finding Nemo\",\n        \"release_date\": \"30/05/2003\",\n        \"raiting\": 8.1,\n        \"genre_id\": 15\n    }\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/movies",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f02afa4b4a9a3049ec87677db364139c\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8f293249-096f-4174-9a5e-8c3ef3510e1c"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.149390"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=1.36, sql.active_record;dur=93.94, instantiation.active_record;dur=0.14, process_action.action_controller;dur=144.80"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 10,\n    \"picture\": \"finding_nemo\",\n    \"title\": \"Finding Nemo\",\n    \"release_date\": \"30/05/2003\",\n    \"raiting\": 8,\n    \"genre_id\": \"Family\",\n    \"cast\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movie\": {\n        \"picture\": \"moana.jpg\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/movies/11",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"movies",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Movie",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"movie\": {\n        \"picture\": \"moana.jpg\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/movies/11",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies",
+										"11"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0d8e7e1ee87329d7714c78f755d2ab2\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "547041c8-e777-4157-b479-90257e61b9be"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.113543"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=3.76, sql.active_record;dur=84.27, instantiation.active_record;dur=0.36, process_action.action_controller;dur=101.39"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 11,\n    \"picture\": \"moana.jpg\",\n    \"title\": \"Moana\",\n    \"release_date\": \"23/11/2016\",\n    \"raiting\": 7,\n    \"genre_id\": \"Family\",\n    \"cast\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Movie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/movies/11",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"movies",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Movie",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/movies/11",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"movies",
+										"11"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "c942a5ce-577a-4b34-973b-1548c73acf3e"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.144714"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=3.05, sql.active_record;dur=119.83, instantiation.active_record;dur=0.39, process_action.action_controller;dur=134.58"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Characters",
+			"item": [
+				{
+					"name": "Character Search",
+					"item": [
+						{
+							"name": "Search Character by Name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/characters?name=mouse",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "mouse"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search Character by Name",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/characters?name=mouse",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"characters"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "mouse"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"610e26679ee2cfbfee3dedad6437cbc9\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "5d9845c1-b82a-468c-ad52-87b532fc9568"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.142137"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=0.40, sql.active_record;dur=38.95, instantiation.active_record;dur=0.13, process_action.action_controller;dur=42.88"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"mickey.jpg\",\n        \"name\": \"Mickey Mouse\"\n    },\n    {\n        \"picture\": \"minnie.jpg\",\n        \"name\": \"Minnie Mouse\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Search Character by Age",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/characters?age=25",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters"
+									],
+									"query": [
+										{
+											"key": "age",
+											"value": "25"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search Character by Age",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/characters?age=25",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"characters"
+											],
+											"query": [
+												{
+													"key": "age",
+													"value": "25"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"bff9a8047000435dd9ffb625440e6dff\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "f2840872-9fe6-4528-a156-d39a62ea38dc"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.038031"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=0.20, sql.active_record;dur=1.47, instantiation.active_record;dur=0.07, process_action.action_controller;dur=3.45"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"beast.jpg\",\n        \"name\": \"Beast\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Search Character by Movie",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{site}}/characters?movie_id=3",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters"
+									],
+									"query": [
+										{
+											"key": "movie_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Search Character by Movie",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{jwt_token}}",
+												"type": "default"
+											}
+										],
+										"url": {
+											"raw": "{{site}}/characters?movie_id=3",
+											"host": [
+												"{{site}}"
+											],
+											"path": [
+												"characters"
+											],
+											"query": [
+												{
+													"key": "movie_id",
+													"value": "3"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin-when-cross-origin"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"916b013cf13075b679e22fb5206266d8\""
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, private, must-revalidate"
+										},
+										{
+											"key": "X-Request-Id",
+											"value": "e4f3a0f1-3e0f-480c-8301-0035a2ba19cc"
+										},
+										{
+											"key": "X-Runtime",
+											"value": "0.093714"
+										},
+										{
+											"key": "Server-Timing",
+											"value": "start_processing.action_controller;dur=1.07, sql.active_record;dur=48.97, instantiation.active_record;dur=0.10, process_action.action_controller;dur=76.56"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"picture\": \"simba.jpg\",\n        \"name\": \"simba\"\n    },\n    {\n        \"picture\": \"pumba.jpg\",\n        \"name\": \"pumba\"\n    }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "All Characters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/characters",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Characters",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/characters",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d19398d01f20845711bac74839bdd7a\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "0f1946f1-d24c-4da4-b6eb-6908f7c81ed6"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.089875"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=7.49, sql.active_record;dur=7.20, instantiation.active_record;dur=0.21, process_action.action_controller;dur=76.66"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"picture\": \"simba.jpg\",\n        \"name\": \"simba\"\n    },\n    {\n        \"picture\": \"pumba.jpg\",\n        \"name\": \"pumba\"\n    },\n    {\n        \"picture\": \"aladdin_ch.jpg\",\n        \"name\": \"Aladdin - Prince Ali\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Show Character",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/characters/2",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"characters",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show Character",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/characters/2",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7615315ca4d690ad39f5850d9417d5f\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "f6893912-dd6f-434f-8318-cadd32474d92"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.020907"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.29, sql.active_record;dur=11.07, instantiation.active_record;dur=0.21, process_action.action_controller;dur=15.68"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 2,\n    \"picture\": \"simba.jpg\",\n    \"name\": \"simba\",\n    \"age\": 2,\n    \"weight\": 50,\n    \"story\": \"Simba is the main protagonist of The Lion King\",\n    \"movies\": \"The Lion King\"\n}"
+						},
+						{
+							"name": "Show Character",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/characters/3",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"24458b45b11a8e1ba6d8850a89fba35f\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "42784770-e15a-404c-b214-90318051da11"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.026785"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=5.82, sql.active_record;dur=12.49, instantiation.active_record;dur=0.19, process_action.action_controller;dur=17.19"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"picture\": \"aladdin_ch.jpg\",\n    \"name\": \"Aladdin - Prince Ali\",\n    \"age\": 18,\n    \"weight\": 70,\n    \"story\": \"Aladdin is a street urchin who becomes a prince with the help of a magical genie\",\n    \"movies\": \"Aladdin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Character",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"character\": {\n        \"picture\": \"minnie.jpg\",\n        \"name\": \"Minnie Mouse\",\n        \"age\": 90,\n        \"weight\": 110.0,\n        \"story\": \"Minnie is Mickey's loyal and loving girlfriend who often joins him on his adventures\",\n        \"movie_id\": 13\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/characters",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"characters"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Character",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"character\": {\n        \"picture\": \"dory.jpg\",\n        \"name\": \"Dory\",\n        \"age\": 30,\n        \"weight\": 150.0,\n        \"story\": \"Dory is a friendly and forgetful blue tang fish in Finding Nemo\",\n        \"movie_id\": 10\n    }\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/characters",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e216f8c7ef719956f10c056e6f6c51af\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "6a8b1a0f-bf03-43f8-8625-fc94aa7dda2c"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.053837"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.36, sql.active_record;dur=34.89, instantiation.active_record;dur=0.14, process_action.action_controller;dur=48.98"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"picture\": \"dory.jpg\",\n    \"name\": \"Dory\",\n    \"age\": 30,\n    \"weight\": 150,\n    \"story\": \"Dory is a friendly and forgetful blue tang fish in Finding Nemo\",\n    \"movies\": \"Finding Nemo\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Character",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"character\": {\n        \"name\": \"Aladdin\",\n        \"picture\": \"aladdin.jpg\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{site}}/characters/3",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"characters",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Character",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"character\": {\n        \"name\": \"Aladdin\",\n        \"picture\": \"aladdin.jpg\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{site}}/characters/3",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"484e03cf000ff83e77ac03756cc1641f\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "17df020f-1814-431b-8eb0-94760b18cb84"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.068836"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=2.20, sql.active_record;dur=42.75, instantiation.active_record;dur=0.23, process_action.action_controller;dur=51.79"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"picture\": \"aladdin.jpg\",\n    \"name\": \"Aladdin\",\n    \"age\": 18,\n    \"weight\": 70,\n    \"story\": \"Aladdin is a street urchin who becomes a prince with the help of a magical genie\",\n    \"movies\": \"Aladdin\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Character",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{site}}/characters/7",
+							"host": [
+								"{{site}}"
+							],
+							"path": [
+								"characters",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Character",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt_token}}",
+										"type": "default"
+									}
+								],
+								"url": {
+									"raw": "{{site}}/characters/7",
+									"host": [
+										"{{site}}"
+									],
+									"path": [
+										"characters",
+										"7"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "40b9fb06-cfae-4ab5-a637-9bb22c9e7bd7"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.025189"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "start_processing.action_controller;dur=0.13, sql.active_record;dur=17.54, instantiation.active_record;dur=0.12, process_action.action_controller;dur=20.16"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{jwt_token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "site",
+			"value": "http://localhost:3000/api/v1/",
+			"type": "default"
+		},
+		{
+			"key": "jwt_token",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2ODcyMTE3NjV9.B2BEPD4goXO-J8R6-fDcOVXUx0PAm6IuRht-B29vrIM",
+			"type": "default"
+		},
+		{
+			"key": "master_key",
+			"value": "0bdff68d995fa3c7d5bae32268a448f4",
+			"type": "default",
+			"disabled": true
+		}
+	]
+}
