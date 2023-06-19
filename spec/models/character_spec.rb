@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Character, type: :model do
   before(:each) do
-    create(:genre)
-    @movie = create(:movie)
+    @genre = create(:genre)
+    @movie = create(:movie, genre_id: @genre.id)
   end
 
   describe 'validations' do
@@ -36,7 +36,7 @@ RSpec.describe Character, type: :model do
     end
 
     it 'character with taken name should be invalid' do
-      create(:character)
+      create(:character, movie_id: @movie.id)
       expect(
         build(:character, id: 50, picture: 'max.jpg', name: 'Max Goof', age: 18, weight: 85, story: "Max's best friend", movie_id: @movie.id)
       ).to be_invalid
@@ -85,7 +85,7 @@ RSpec.describe Character, type: :model do
 
   describe 'associations' do
     it 'character should belong to movie' do
-      character = create(:character)
+      character = create(:character, movie_id: @movie.id)
       expect(character.movie).to eq(@movie)
     end
   end

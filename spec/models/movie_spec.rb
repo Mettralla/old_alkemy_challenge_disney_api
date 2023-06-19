@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Movie, type: :model do
   describe 'validations' do
     it 'movie with valid data should be valid' do
-      create(:genre)
-      expect(build(:movie)).to be_valid
+      genre = create(:genre)
+      expect(build(:movie, genre_id: genre.id)).to be_valid
     end
 
     it 'movie without picture should be invalid' do
@@ -129,8 +129,8 @@ RSpec.describe Movie, type: :model do
 
   describe 'associations' do
     it 'destroys associated characters when movie is destroyed' do
-      create(:genre)
-      movie = create(:movie)
+      genre = create(:genre)
+      movie = create(:movie, genre_id: genre.id)
       create(:character, id: 50, picture: 'pj.jpg', name: 'P.J.', age: 18, weight: 85, story: "Max's best friend", movie_id: movie.id)
       create(:character, id: 51, picture: 'max.jpg', name: 'max', age: 18, weight: 60, story: "Protagonist", movie_id: movie.id)
 

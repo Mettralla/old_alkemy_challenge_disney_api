@@ -4,8 +4,8 @@ RSpec.describe 'Characters API', type: :request do
   before(:each) do
     @user = create(:user, email: 'toot@toot.com', password: 'g00d_pa$$')
     @genre = create(:genre)
-    @movie = create(:movie)
-    @character = create(:character)
+    @movie = create(:movie, genre_id: @genre.id)
+    @character = create(:character, movie_id: @movie.id)
     @headers = { 'Authorization' => JsonWebToken.encode(user_id: @user.id) }
   end
 
