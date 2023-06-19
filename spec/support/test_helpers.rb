@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 # spec/support/test_helpers.rb
 
+# Module containing helper methods for test scenarios
 module TestHelpers
+  # Builds the expected response for a character object
   def build_character_expected_response(character)
     {
       'id' => character.id,
@@ -13,6 +17,7 @@ module TestHelpers
     }
   end
 
+  # Builds the expected response for character index action
   def character_index_expected_response(character)
     [
       {
@@ -22,6 +27,7 @@ module TestHelpers
     ]
   end
 
+  # Builds the expected response for a movie object
   def build_movie_expected_response(movie)
     {
       'id' => movie.id,
@@ -34,6 +40,7 @@ module TestHelpers
     }
   end
 
+  # Builds the expected response for movie index action
   def movie_index_expected_response(movie)
     [
       {
@@ -44,6 +51,7 @@ module TestHelpers
     ]
   end
 
+  # Builds the expected response for genres index action
   def genres_index_expected_response(genres)
     genres.map do |genre|
       {
@@ -53,6 +61,7 @@ module TestHelpers
     end
   end
 
+  # Builds the expected response for a genre object
   def build_genre_expected_response(genre)
     {
       'id' => genre.id,
@@ -61,6 +70,7 @@ module TestHelpers
     }
   end
 
+  # Builds the expected response for a user object
   def build_user_expected_response(user)
     {
       'id' => user.id,

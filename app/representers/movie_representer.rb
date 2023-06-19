@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
+# MovieRepresenter is responsible for representing a Movie object as JSON.
 class MovieRepresenter
+  # Initializes a new instance of MovieRepresenter.
   def initialize(movie)
     @movie = movie
   end
 
+  # Converts the Movie object to a JSON hash representation.
   def as_json
     {
       id: @movie.id,

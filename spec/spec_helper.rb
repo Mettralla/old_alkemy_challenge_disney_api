@@ -94,6 +94,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Include the RequestHelper module for request specs
   config.include RequestHelper, type: :request
+
+  # Include the TestHelpers module for all specs
   config.include TestHelpers
 end

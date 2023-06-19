@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# Utility class for simulating a controller in testing or development environment.
 class MockController
   include Authenticable
   attr_accessor :request
@@ -16,7 +17,7 @@ RSpec.describe 'Authentication', type: :request do
     @authentication = MockController.new
   end
 
-  describe "Authorization Token" do
+  describe 'Authorization Token' do
     it 'should get user from Authorization token' do
       @authentication.request.headers['Authorization'] = JsonWebToken.encode(user_id: @user.id)
 
@@ -28,8 +29,5 @@ RSpec.describe 'Authentication', type: :request do
       @authentication.request.headers['Authorization'] = nil
       expect(@authentication.current_user).to be_nil
     end
-
-
   end
-  
 end
