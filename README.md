@@ -1,5 +1,5 @@
 <p align="center">
-<img src=https://drive.google.com/uc?export=view&id=1XOqik5P0CnPdmt452a-BoI_Jj6cTYeL1 alt="Banner">
+<img src=https://drive.google.com/uc?export=view&id=1zWX_JdTJazGCRXl7gr1sVhiUCzzUNG2f alt="Banner">
 </p>
 <h3 align="center">Alkemy Backend Challenge - Ruby on Rails</h3>
 
@@ -43,10 +43,12 @@
     - Busqueda por params querys: name, age, id_movie 
 
 ## 💾 Modelo <a name = "database"></a>
-<br>
 
-Placeholder
-<!-- ![modelo](https://drive.google.com/uc?export=view&id=15WpnYT1KBapNUwiOu8AQeY1SiPOBGN91) -->
+<p align="center">
+
+![modelo](https://drive.google.com/uc?export=view&id=1Yg0SZ-7RIHHJGHJDI4vdzocMwrRg2zDX)
+
+</p>
 
 ## 🏁 Instalación/Ejecución <a name = "getting_started"></a>
 
@@ -79,6 +81,7 @@ Configuración de la base de datos
 Antes de ejecutar la aplicación, asegúrate de configurar la conexión a tu base de datos PostgreSQL.
 
 ```yml
+# config\database.yml
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -90,13 +93,20 @@ default: &default
 Crear base de datos
 
 ```bash
-rake db:create
+rails db:create
 ```
 Realizar migraciones
 
 ```bash
 rails db:migrate
 ```
+
+De forma opcional puedes poblar la base de datos con algunos registros de prueba
+
+```bash
+rails db:seed
+```
+
 Iniciar server
 
 ```bash
@@ -200,6 +210,11 @@ Authorization: <jwt_token>
 >```
 >http://localhost:3000/api/v1/users/1
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 {
@@ -213,6 +228,11 @@ Authorization: <jwt_token>
 >```
 >http://localhost:3000/api/v1/users/1
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -239,6 +259,12 @@ Authorization: <jwt_token>
 >```
 >http://localhost:3000/api/v1/users/1
 >```
+
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 204
 ```json
 null
@@ -278,6 +304,11 @@ null
 >```
 >http://localhost:3000/api/v1/genres
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 [
@@ -317,6 +348,11 @@ null
 >```
 >http://localhost:3000/api/v1/genres/14
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 {
@@ -331,6 +367,11 @@ null
 >```
 >http://localhost:3000/api/v1/genres
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -356,6 +397,11 @@ null
 >```
 >http://localhost:3000/api/v1/genres/16
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -381,6 +427,11 @@ null
 >```
 >http://localhost:3000/api/v1/genres/16
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 204
 ```json
 null
@@ -393,6 +444,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies?title=lion
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -421,6 +477,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies?genre_id=10
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -459,6 +520,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies?order=ASC
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -517,6 +583,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies?order=DESC
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -579,7 +650,7 @@ null
 
 |Content-Type|Value|
 |---|---|
-|Authorization|{{jwt_token}}|
+|Authorization|jwt_token|
 
 
 ### Response: 200
@@ -623,6 +694,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies/6
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 {
@@ -664,6 +740,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -698,6 +779,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies/11
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -726,6 +812,11 @@ null
 >```
 >http://localhost:3000/api/v1/movies/11
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 204
 ```json
 null
@@ -739,6 +830,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters?name=mouse
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -766,6 +862,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters?age=25
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -789,6 +890,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters?movie_id=3
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Query Params
 
 |Param|value|
@@ -815,6 +921,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 [
@@ -838,6 +949,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters/2
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 200
 ```json
 {
@@ -856,6 +972,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -889,6 +1010,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters/3
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Body (**raw**)
 
 ```json
@@ -919,6 +1045,11 @@ null
 >```
 >http://localhost:3000/api/v1/characters/7
 >```
+### Header
+
+|Content-Type|Value|
+|---|---|
+|Authorization|jwt_token|
 ### Response: 204
 ```json
 null
@@ -929,13 +1060,17 @@ null
 
 Para ejecutar todos los tests y ver los resultados en formato de documentación con colores, sigue estos pasos:
 
-1. Asegúrate de tener todas las dependencias.
+1. Asegúrate de tener todas las dependencias y hacer las migraciones necesarias en caso de no haberlo hecho aun.
+
+```bash
+rails db:migrate RAILS_ENV=test
+```
 
 2. Abre una terminal y navega hasta el directorio raíz del proyecto.
 
 3. Ejecuta el siguiente comando para ejecutar todos los tests y ver los resultados en formato de documentación con colores:
 
-```
+```bash
 bundle exec rspec --format documentation --color
 ```
 
