@@ -61,7 +61,7 @@ Asegúrate de tener instalado lo siguiente en tu sistema:
 Clonar el repositorio
 
 ```bash
-git clone git@github.com:Mettralla/old_alkemy_challenge_disney_api.git
+git clone https://github.com/Mettralla/old_alkemy_challenge_disney_api.git
 ```
 
 Ir al directorio del proyecto
